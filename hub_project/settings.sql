@@ -1,0 +1,4 @@
+-- settings.sql
+CREATE DATABASE hub;
+CREATE USER hubuser WITH PASSWORD 'hub';
+GRANT ALL PRIVILEGES ON DATABASE hub TO hubuser;
