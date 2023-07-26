@@ -2,10 +2,15 @@ from rest_framework import serializers
 from .models import User, Accomodation, Student
 
 class AccomodationSerializer(serializers.HyperlinkedModelSerializer):
-    student = serializers.HyperlinkedRelatedField(
-        view_name = 'student_detail',
-        read_only=True
-    )
+    # student = serializers.HyperlinkedRelatedField(
+    #     view_name = 'student_detail',
+    #     read_only=True
+    # )
+
+    # student_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=Student.objects.all(),
+    #     source='first_name'
+    # )
 
     class Meta:
         model = Accomodation
@@ -13,11 +18,21 @@ class AccomodationSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    student = serializers.HyperlinkedRelatedField(
-        view_name = 'student_detail',
-        many=True,
-        read_only=True
-    )
+    # student = serializers.HyperlinkedRelatedField(
+    #     view_name = 'student_detail',
+    #     many=True,
+    #     read_only=True
+    # )
+
+    # teacher_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=User.objects.all(),
+    #     source='first_name'
+    # )
+
+    # caseworker_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=User.objects.all(),
+    #     source='first_name'
+    # )
 
     class Meta:
         model = User
@@ -40,6 +55,24 @@ class StudentSerializer(serializers.HyperlinkedModelSerializer):
         view_name = 'accomodation_detail',
         read_only=True
     )
+
+    # teachers = serializers.PrimaryKeyRelatedField(
+    #     queryset=User.objects.all(),
+    #     source='first_name'
+    # )
+
+    # caseworker = serializers.PrimaryKeyRelatedField(
+    #     queryset=User.objects.all(),
+    #     source='first_name'
+    # )
+
+#     teacher_url = serializers.ModelSerializer.serializer_url_field(
+#         view_name='user_detail'
+#    )
+    
+#     caseworker_url = serializers.ModelSerializer.serializer_url_field(
+#         view_name='user_detail'
+#    )
 
     class Meta:
         model = Student
