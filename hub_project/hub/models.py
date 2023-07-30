@@ -30,7 +30,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     learning_plan = models.CharField(max_length=3, choices=LEARNING_TYPE)
-    teachers = models.ManyToManyField(User, related_name='teachers')
+    teachers = models.ManyToManyField(User, related_name='teachers', blank=True, null=True)
     caseworker = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='caseworker', blank=True, null=True)
     accomodations = models.ForeignKey(Accomodation, on_delete=models.DO_NOTHING, related_name='accomodations', blank=True, null=True)
     teacher_suggestions = models.TextField(blank=True, null=True)
