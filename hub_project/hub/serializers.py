@@ -56,9 +56,9 @@ class StudentSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
 
-    # teachers = serializers.PrimaryKeyRelatedField(
+    # teachers_2 = serializers.PrimaryKeyRelatedField(
     #     queryset=User.objects.all(),
-    #     source='first_name'
+    #     source='email'
     # )
 
     # caseworker = serializers.PrimaryKeyRelatedField(

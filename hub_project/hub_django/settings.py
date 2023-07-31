@@ -59,7 +59,42 @@ CORS_ALLOWED_ORIGINS = [
     "https://sub.example.com",
     "http://localhost:5173",
     "http://127.0.0.1:5555",
+    "http://localhost:8000",
 ]
+
+# added to see if it would allow POST.
+CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:5173/addstudent",
+    "http://localhost:8000",
+]
+
+#we're just gonna try some stuff
+
+CORS_ALLOW_METHODS = [
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+'accept',
+'accept-encoding',
+'authorization',
+'content-type',
+'dnt',
+'origin',
+'user-agent',
+'x-csrftoken',
+'x-requested-with',
+]
+
+# SHOCKER! didnt work. ^^
 
 
 ROOT_URLCONF = 'hub_django.urls'
@@ -86,7 +121,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.AllowAny'
     ]
 }
 
